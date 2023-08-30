@@ -15,11 +15,11 @@ export const postNewJoke = async (jokeText) => {
     body: JSON.stringify({ text: jokeText, told: false }),
   });
 
-  const jokes = await response.json();
+  const jokes = await response.json(jokeText);
   return jokes;
 };
 
-// Update an existing joke in the database
+// Update an existing joke in the database 4.1
 export const editJoke = async (editedJoke) => {
   const response = await fetch(`http://localhost:8088/jokes/${editedJoke.id}`, {
     method: "PUT",
@@ -28,7 +28,20 @@ export const editJoke = async (editedJoke) => {
     },
     body: JSON.stringify(editedJoke),
   });
-
+  // 4.2
   const updatedJoke = await response.json();
   return updatedJoke;
+};
+
+// Fetch to delete data
+export const deleteJoke = async (jokeToDelete) => {
+  const response = await fetch(`http://localhost:8088/jokes/${jokeToDelete}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const deletedJoke = await response.json();
+  return deletedJoke;
 };
