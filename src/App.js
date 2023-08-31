@@ -73,8 +73,6 @@ Solution: Fetch the data in a controlled manner, such as in the useEffect
  fetched only once, when the component mounts, and not every time it re-renders.
 */
 
-//! Added delete button, create a function to delete data & a delete HTTP request
-
 export const App = () => {
   //This state variable holds the user's input in the joke input field. 1.1
   const [inputValue, setInputValue] = useState([]);
@@ -149,12 +147,12 @@ export const App = () => {
   tell the server to update the joke with the new 'told' value
   */
 
-  // the parameter joke is what I want to modify
-  /* The told property of the new editedJoke object is set to the opposite
-value of the original joke object's told property. The ! operator is used to flip
-the boolean value. If joke.told is true, then !joke.told will be false, and vice versa.
+  /* Purpose of this function is to return a new object that is a modified version of the input joke
+The modification involves toggling the value of the told property. 
+**If the told property in the joke is true, then code sets it to false in the new object. vise versa
+- The spread operator creates a shallow copy of the joke object 
 */
-  // 5.2 Created a new function to toggle the toldProperty
+  //
   const toggleToldProperty = (joke) => {
     const editedJoke = {
       ...joke,
@@ -169,6 +167,8 @@ the boolean value. If joke.told is true, then !joke.told will be false, and vice
     const editedJoke = toggleToldProperty(jokeToToggle);
 
     // Update state to reflect the changes
+    // Updates local state and creates new array, updatedJokes.
+    // Checks if jokes id matches the jokeToToggle id
     const updatedJokes = allJokes.map((joke) =>
       joke.id === jokeToToggle.id ? editedJoke : joke
     );
