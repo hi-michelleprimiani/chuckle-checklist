@@ -82,7 +82,7 @@ these styles and create your own styles and layout for the application.
     font-size: 4rem;
     box-shadow: 2px 4px 10px hsla(0, 0%, 0%, 0.3),
       2px 4px 20px hsla(0, 0%, 0%, 0.2);
-  
+
     .app-logo {
       width: 5rem;
       filter: drop-shadow(1px 1px 11px var(--col-0));
@@ -196,10 +196,6 @@ h2 {
     margin: 0;
     font-size: 0.7rem;
     flex-basis: 75%;
-  }
-
-  .button {
-    color: #e34f97;
   }
 
   /** Classes for the action buttons. Wrap the buttons in their own div*/
