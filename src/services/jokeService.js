@@ -5,7 +5,7 @@ export const getJokes = () => {
   );
 };
 
-// Posting new jokes to local API  1.3
+// Posting new jokes to local API
 export const postNewJoke = async (jokeText) => {
   const response = await fetch("http://localhost:8088/jokes", {
     method: "POST",
@@ -19,7 +19,7 @@ export const postNewJoke = async (jokeText) => {
   return jokes;
 };
 
-// Update an existing joke in the database 4.1
+// Update an existing joke in the database
 export const editJoke = async (editedJoke) => {
   const response = await fetch(`http://localhost:8088/jokes/${editedJoke.id}`, {
     method: "PUT",
@@ -28,7 +28,7 @@ export const editJoke = async (editedJoke) => {
     },
     body: JSON.stringify(editedJoke),
   });
-  // 4.2
+
   const updatedJoke = await response.json();
   return updatedJoke;
 };
